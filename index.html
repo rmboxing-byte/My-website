@@ -5,351 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RM Boxing - Mental Health Support for Veterans & Community</title>
 
-    <!-- Lightbox CSS and JS (must be inside head before anything else) -->
+    <!-- Lightbox CSS and JS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    <style>
+        * {margin:0;padding:0;box-sizing:border-box;}
+        body {font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;line-height:1.6;color:#333;}
 
         /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, #DC143C 0%, #1a1a1a 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: #DC143C;
+        header {background:linear-gradient(135deg,#DC143C 0%,#1a1a1a 100%);color:white;padding:1rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+        nav {display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 2rem;}
+        .logo {font-size:1.8rem;font-weight:bold;letter-spacing:2px;}
+        nav ul {display:flex;list-style:none;gap:2rem;}
+        nav a {color:white;text-decoration:none;transition:color 0.3s;font-weight:500;}
+        nav a:hover {color:#DC143C;}
+        .hamburger {display:none;flex-direction:column;cursor:pointer;gap:5px;}
+        .hamburger div {width:25px;height:3px;background:white;}
+        @media (max-width:768px) {
+            nav ul {display:none;flex-direction:column;background:#1a1a1a;width:100%;position:absolute;top:60px;left:0;text-align:center;}
+            nav ul.active {display:flex;}
+            .hamburger {display:flex;}
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 8rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        .hero {background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);color:white;padding:8rem 2rem;text-align:center;position:relative;overflow:hidden;}
+        .hero::before {content:'';position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(220,20,60,0.1) 0%,transparent 70%);border-radius:50%;}
+        .hero-content {position:relative;z-index:1;max-width:800px;margin:0 auto;}
+        .hero h1 {font-size:3.5rem;margin-bottom:1rem;font-weight:900;}
+        .hero h1 span {color:#DC143C;}
+        .hero p {font-size:1.3rem;margin-bottom:2rem;opacity:0.95;}
+        .cta-button {display:inline-block;background:#DC143C;color:white;padding:1rem 2.5rem;border-radius:5px;text-decoration:none;font-weight:bold;font-size:1.1rem;transition:all 0.3s;border:2px solid #DC143C;}
+        .cta-button:hover {background:white;color:#DC143C;transform:translateY(-2px);box-shadow:0 10px 25px rgba(220,20,60,0.3);}
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(220, 20, 60, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
+        /* Sections */
+        section {padding:4rem 2rem;}
+        .mission {background:white;text-align:center;}
+        .programs {background:#f5f5f5;}
+        .who-we-serve {background:white;}
+        .benefits {background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);color:white;}
+        .gallery {background:#f5f5f5;text-align:center;}
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* Section Titles */
+        .section-title {font-size:2.5rem;color:#1a1a1a;margin-bottom:1rem;font-weight:800;}
+        .section-title span {color:#DC143C;}
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 900;
-        }
-
-        .hero h1 span {
-            color: #DC143C;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #DC143C;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s;
-            border: 2px solid #DC143C;
-        }
-
-        .cta-button:hover {
-            background: white;
-            color: #DC143C;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.3);
-        }
-
-        /* Mission Section */
-        .mission {
-            background: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .mission-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .section-title span {
-            color: #DC143C;
-        }
-
-        .mission-text {
-            font-size: 1.2rem;
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .mission-highlight {
-            background: linear-gradient(135deg, #DC143C 0%, #1a1a1a 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            font-size: 2rem;
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        /* Programs Section */
-        .programs {
-            background: #f5f5f5;
-            padding: 4rem 2rem;
-        }
-
-        .programs-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .program-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 5px solid #DC143C;
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.2);
-        }
-
-        .program-card h3 {
-            color: #DC143C;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .program-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .program-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Who We Serve */
-        .who-we-serve {
-            background: white;
-            padding: 4rem 2rem;
-        }
-
-        .who-we-serve-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .serve-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .serve-card {
-            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .serve-card:hover {
-            transform: scale(1.05);
-        }
-
-        .serve-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .serve-card p {
-            opacity: 0.95;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            color: white;
-            padding: 4rem 2rem;
-        }
-
-        .benefits-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .benefits h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .benefits h2 span {
-            color: #DC143C;
-        }
-
-        .benefits-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .benefit-item {
-            padding: 1.5rem;
-            background: rgba(220, 20, 60, 0.1);
-            border-left: 4px solid #DC143C;
-            border-radius: 5px;
-        }
-
-        .benefit-item h4 {
-            color: #DC143C;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .benefit-item p {
-            opacity: 0.9;
-        }
+        /* Program & Serve Cards */
+        .programs-grid,.serve-grid,.benefits-list {display:grid;gap:2rem;margin-top:3rem;}
+        .program-card,.serve-card,.benefit-item {padding:2rem;border-radius:10px;transition:all 0.3s;}
+        .program-card {background:white;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #DC143C;}
+        .program-card:hover {transform:translateY(-10px);box-shadow:0 15px 40px rgba(220,20,60,0.2);}
+        .program-icon {font-size:3rem;margin-bottom:1rem;}
+        .serve-card {background:linear-gradient(135deg,#DC143C 0%,#8B0000 100%);color:white;text-align:center;}
+        .serve-card:hover {transform:scale(1.05);}
+        .serve-card h3 {font-size:1.3rem;margin-bottom:0.5rem;}
+        .serve-card p {opacity:0.95;}
+        .benefit-item {background:rgba(220,20,60,0.1);border-left:4px solid #DC143C;}
+        .benefit-item h4 {color:#DC143C;margin-bottom:0.5rem;font-size:1.2rem;}
+        .benefit-item p {opacity:0.9;}
 
         /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
+        footer {background:#1a1a1a;color:white;text-align:center;padding:2rem;}
+        .footer-highlight {color:#DC143C;font-weight:bold;}
 
-        footer p {
-            margin-bottom: 0.5rem;
-        }
+        /* Hero Image */
+        .hero-img img {width:100%;max-width:1000px;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,0.2);}
 
-        .footer-highlight {
-            color: #DC143C;
-            font-weight: bold;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            .hero {
-                padding: 4rem 1rem;
-            }
-        }
+        /* Popups */
+        .floating-buttons {position:fixed;bottom:20px;right:20px;display:flex;flex-direction:column;gap:10px;z-index:1000;}
+        .float-btn {background:#DC143C;color:white;border:none;border-radius:30px;padding:10px 18px;cursor:pointer;font-weight:bold;font-size:1rem;box-shadow:0 4px 10px rgba(0,0,0,0.2);transition:all 0.3s ease;}
+        .float-btn:hover {background:white;color:#DC143C;border:2px solid #DC143C;}
+        .popup {display:none;position:fixed;z-index:1001;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,0.6);}
+        .popup-content {background:white;border-radius:10px;padding:2rem;max-width:500px;margin:10% auto;box-shadow:0 5px 15px rgba(0,0,0,0.3);text-align:center;animation:fadeIn 0.3s ease;overflow-y:auto;max-height:80%;}
+        .close {float:right;font-size:1.5rem;font-weight:bold;color:#DC143C;cursor:pointer;}
+        @keyframes fadeIn {from{opacity:0;transform:scale(0.9);}to{opacity:1;transform:scale(1);}}
+        @media (max-width:768px){.hero h1{font-size:2rem;}.section-title{font-size:1.8rem;}.hero{padding:4rem 1rem;}}
     </style>
-
 </head>
 <body>
     <!-- Top Banner -->
     <div style="background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%); color: white; text-align: center; padding: 1rem; font-size: 1.8rem; font-weight: 900; letter-spacing: 2px;">
         JUST HAVE FUN
     </div>
-
     <div style="background: #1a1a1a; color: #DC143C; text-align: center; padding: 0.75rem; font-size: 1.3rem; font-weight: 700; letter-spacing: 1px;">
         WHERE CHAMPIONS ARE MADE
     </div>
@@ -358,7 +96,8 @@
     <header>
         <nav>
             <div class="logo">🥊 RM BOXING</div>
-            <ul>
+            <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+            <ul id="nav-links">
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#serve">Who We Serve</a></li>
@@ -377,18 +116,16 @@
     </section>
 
     <!-- Hero Image -->
-<div style="background: #f0f0f0; padding: 3rem 2rem; text-align: center;">
-    <img src="IMG_4922.jpeg" alt="RM Boxing Training Session" style="width: 100%; max-width: 1000px; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-</div>
+    <div class="hero-img" style="background: #f0f0f0; padding: 3rem 2rem; text-align: center;">
+        <img src="IMG_4922.jpeg" alt="RM Boxing Training Session">
+    </div>
 
     <!-- Mission Section -->
     <section class="mission" id="mission">
         <div class="mission-container">
             <h2 class="section-title">Our <span>Mission</span></h2>
-<img src="IMG_4910.jpeg" alt="Community Support" style="width: 100%; max-width: 600px; height: auto; border-radius: 10px; margin-bottom: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-
-            
-        <p class="mission-text">We provide a supportive environment for all male and female athletes of all ages who are interested in pursuing competitive or non-competitive boxing training. Our club's friendly atmosphere allows all members to foster discipline, increase athleticism, encourage healthy living, and build a strong sense of community.</p>
+            <img src="IMG_4910.jpeg" alt="Community Support" style="width:100%;max-width:600px;height:auto;border-radius:10px;margin-bottom:2rem;">
+            <p class="mission-text">We provide a supportive environment for all male and female athletes of all ages who are interested in pursuing competitive or non-competitive boxing training. Our club's friendly atmosphere allows all members to foster discipline, increase athleticism, encourage healthy living, and build a strong sense of community.</p>
             <p class="mission-text">We believe mental wellness is a journey best taken together. Through boxing, mentorship, and genuine human connection, we provide accessible mental health support to those who need it most—with one core principle guiding everything we do.</p>
             <div class="mission-highlight">Just Have Fun</div>
         </div>
@@ -399,36 +136,13 @@
         <div class="programs-container">
             <h2 class="section-title">Our <span>Programs</span></h2>
             <div class="programs-grid">
-                <div class="program-card">
-                    <div class="program-icon">🥊</div>
-                    <h3>Boxing Classes</h3>
-                    <p>Build strength, confidence, and resilience through expert-led boxing instruction designed for all fitness levels. Release stress and anxiety with every punch in our group classes.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">👥</div>
-                    <h3>One-on-One Training</h3>
-                    <p>Get personalized attention with individual training sessions tailored to your goals, fitness level, and mental health journey.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">💪</div>
-                    <h3>Strength & Conditioning</h3>
-                    <p>Build functional strength and endurance with guided conditioning programs designed to improve both physical and mental resilience.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">🍎</div>
-                    <h3>Meal Planning</h3>
-                    <p>Nutrition guidance and personalized meal plans to fuel your body and support your mental health recovery.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">🤝</div>
-                    <h3>Mentorship</h3>
-                    <p>Connect with experienced mentors who understand your challenges. Get guidance, support, and genuine friendship as you navigate life's struggles.</p>
-                </div>
-                <div class="program-card">
-                    <div class="program-icon">🎯</div>
-                    <h3>Coaching & Support</h3>
-                    <p>Personalized coaching focused on mental wellness, goal-setting, and building healthy coping strategies for depression and anxiety.</p>
-                </div>
+                <!-- Program Cards (unchanged) -->
+                <div class="program-card"><div class="program-icon">🥊</div><h3>Boxing Classes</h3><p>Build strength, confidence, and resilience through expert-led boxing instruction designed for all fitness levels. Release stress and anxiety with every punch in our group classes.</p></div>
+                <div class="program-card"><div class="program-icon">👥</div><h3>One-on-One Training</h3><p>Get personalized attention with individual training sessions tailored to your goals, fitness level, and mental health journey.</p></div>
+                <div class="program-card"><div class="program-icon">💪</div><h3>Strength & Conditioning</h3><p>Build functional strength and endurance with guided conditioning programs designed to improve both physical and mental resilience.</p></div>
+                <div class="program-card"><div class="program-icon">🍎</div><h3>Meal Planning</h3><p>Nutrition guidance and personalized meal plans to fuel your body and support your mental health recovery.</p></div>
+                <div class="program-card"><div class="program-icon">🤝</div><h3>Mentorship</h3><p>Connect with experienced mentors who understand your challenges. Get guidance, support, and genuine friendship as you navigate life's struggles.</p></div>
+                <div class="program-card"><div class="program-icon">🎯</div><h3>Coaching & Support</h3><p>Personalized coaching focused on mental wellness, goal-setting, and building healthy coping strategies for depression and anxiety.</p></div>
             </div>
         </div>
     </section>
@@ -437,22 +151,11 @@
     <section class="who-we-serve" id="serve">
         <div class="who-we-serve-container">
             <h2 class="section-title">Who We <span>Serve</span></h2>
-            <!-- Example for first program card image -->
-<img src="IMG_4913.jpeg" alt="Veterans and Community Members" style="width: 100%; max-width: 1000px; height: auto; border-radius: 10px; margin-bottom: 3rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-
+            <img src="IMG_4913.jpeg" alt="Veterans and Community Members" style="width:100%;max-width:1000px;height:auto;border-radius:10px;margin-bottom:3rem;">
             <div class="serve-grid">
-                <div class="serve-card">
-                    <h3>🇺🇸 Veterans</h3>
-                    <p>Specialized support for those who have served, helping transition to civilian life and managing service-related mental health challenges.</p>
-                </div>
-                <div class="serve-card">
-                    <h3>👨‍👩‍👧‍👦 Low-Income Families</h3>
-                    <p>Accessible mental health support and community building for families facing financial hardship and stress.</p>
-                </div>
-                <div class="serve-card">
-                    <h3>🌍 Community Members</h3>
-                    <p>Anyone in our community struggling with depression, anxiety, or mental health challenges looking for support and connection.</p>
-                </div>
+                <div class="serve-card"><h3>🇺🇸 Veterans</h3><p>Specialized support for those who have served, helping transition to civilian life and managing service-related mental health challenges.</p></div>
+                <div class="serve-card"><h3>👨‍👩‍👧‍👦 Low-Income Families</h3><p>Accessible mental health support and community building for families facing financial hardship and stress.</p></div>
+                <div class="serve-card"><h3>🌍 Community Members</h3><p>Anyone in our community struggling with depression, anxiety, or mental health challenges looking for support and connection.</p></div>
             </div>
         </div>
     </section>
@@ -462,201 +165,74 @@
         <div class="benefits-container">
             <h2>Why <span>Boxing & Mentorship</span></h2>
             <div class="benefits-list">
-                <div class="benefit-item">
-                    <h4>Mental Health Relief</h4>
-                    <p>Boxing releases endorphins and reduces stress, providing natural relief from anxiety and depression.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Build Confidence</h4>
-                    <p>Achieve goals, overcome challenges, and discover your strength—both physical and mental.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Community & Belonging</h4>
-                    <p>Connect with others on similar journeys. You're never alone in the ring.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Healthy Coping</h4>
-                    <p>Replace harmful coping mechanisms with positive outlets that strengthen both body and mind.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Accessible Support</h4>
-                    <p>Free or low-cost programs designed for those who might otherwise go without support.</p>
-                </div>
-                <div class="benefit-item">
-                    <h4>Fun & Engagement</h4>
-                    <p>Mental wellness shouldn't feel like a chore. We make it fun, meaningful, and rewarding.</p>
-                </div>
-            </div>
-            <div style="background: rgba(220, 20, 60, 0.2); border: 2px solid #DC143C; border-radius: 10px; padding: 2rem; margin-top: 3rem; text-align: center;">
-                <h3 style="color: #DC143C; font-size: 1.3rem; margin-bottom: 1rem;">Support Our Mission</h3>
-                <p style="color: white; font-size: 1.1rem; line-height: 1.8;">Our nonprofit organization has available spots for sponsorship to help us accomplish our goals and expand our programs to reach more athletes, veterans, low-income families, and community members in need of mental health support.</p>
-                <p style="color: white; font-size: 1rem; margin-top: 1rem; font-weight: bold;">We Are Currently Looking For Sponsors!</p>
-                <a href="mailto:menny2212@gmail.com?subject=Sponsorship Inquiry" style="display: inline-block; background: #DC143C; color: white; padding: 0.75rem 2rem; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 1rem; transition: all 0.3s; border: 2px solid #DC143C;" onmouseover="this.style.background='white'; this.style.color='#DC143C';" onmouseout="this.style.background='#DC143C'; this.style.color='white';">Become a Sponsor</a>
+                <div class="benefit-item"><h4>Mental Health Relief</h4><p>Boxing releases endorphins and reduces stress, providing natural relief from anxiety and depression.</p></div>
+                <div class="benefit-item"><h4>Build Confidence</h4><p>Achieve goals, overcome challenges, and discover your strength—both physical and mental.</p></div>
+                <div class="benefit-item"><h4>Community & Belonging</h4><p>Connect with others on similar journeys. You're never alone in the ring.</p></div>
+                <div class="benefit-item"><h4>Healthy Coping</h4><p>Replace harmful coping mechanisms with positive outlets that strengthen both body and mind.</p></div>
+                <div class="benefit-item"><h4>Fun First</h4><p>We focus on enjoyment and engagement, ensuring every session leaves you energized and motivated.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Image Gallery Section -->
-<section class="gallery" id="gallery" style="background: #f5f5f5; padding: 4rem 2rem; text-align: center;">
-  <h2 class="section-title">Gallery</h2>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <button class="float-btn" id="coachBtn">Meet Coach Menny</button>
+        <button class="float-btn" id="joinBtn">Join RM Boxing</button>
+    </div>
 
-  <!-- Cover Image (Visible) -->
-  <a href="IMG_4916.jpeg" data-lightbox="rm-gallery">
-    <img src="IMG_4916.jpeg" alt="Gallery Cover Image" style="width: 100%; max-width: 600px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer;">
-  </a>
+    <!-- Coach Menny Popup -->
+    <div class="popup" id="coachPopup">
+        <div class="popup-content">
+            <span class="close" id="closeCoach">&times;</span>
+            <h2>Coach Menny Marquez</h2>
+            <p>Retired SFC, Professional Boxer and Coach. Over 70 fights in the US Army, winner of multiple national and international competitions. Veteran, dedicated to training soldiers, elite athletes, youth, and anyone looking to get fit and have fun.</p>
+            <p>Born in Mexico, Coach Menny brings passion, discipline, and heart to every training session.</p>
+        </div>
+    </div>
 
-  <!-- Hidden Images (still appear in Lightbox) -->
-  <a href="IMG_4908.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4906.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4907.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4909.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4910.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4913.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4915.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4918.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4920.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4922.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4923.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-  <a href="IMG_4924.jpeg" data-lightbox="rm-gallery" style="display:none;"></a>
-</section>
-
+    <!-- Join RM Boxing Popup -->
+    <div class="popup" id="joinPopup">
+        <div class="popup-content">
+            <span class="close" id="closeJoin">&times;</span>
+            <h2>Join RM Boxing</h2>
+            <p>Please reach out to schedule a class or session. Text us via your phone app for instant scheduling.</p>
+            <h3>Weekly Schedule</h3>
+            <ul style="text-align:left;list-style:none;padding:0;">
+                <li>Monday: 5:00 PM – 6:30 PM</li>
+                <li>Tuesday – Friday: 6:00 PM – 7:30 PM</li>
+                <li>Saturday – Sunday: By Appointment Only</li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
-    <p>© 2025 RM Boxing</p>
-    <p><span class="footer-highlight">Just Have Fun</span> • Building healthier, stronger communities</p>
-    <p>For veterans, families, and everyone in our community.</p>
-    
-    <!-- Contact Info -->
-    <p>Phone: <a href="tel:3364142086" style="color: white; text-decoration: none;">336-414-2086</a> | Email: <a href="mailto:menny2212@gmail.com" style="color: white; text-decoration: none;">menny2212@gmail.com</a></p>
-    
-    <!-- Social Links with Icons -->
-    <div style="margin-top: 1rem;">
-        <a href="https://www.facebook.com/reyes.m.marquez" target="_blank" style="margin-right: 1rem; color: #3b5998; font-size: 2rem;">
-    <i class="fab fa-facebook"></i>
-</a>
-        <a href="https://www.instagram.com/rnmboxing_" target="_blank" style="color: #E4405F; font-size: 2rem;">
-            <i class="fab fa-instagram"></i>
-        </a>
-    </div>
-</footer>
-    <!-- Floating Buttons for Contact and Class Schedule -->
-<div class="floating-buttons">
-  <button id="contactBtn" class="float-btn">📸 Contact</button>
-  <button id="scheduleBtn" class="float-btn">🥊 Join Class</button>
-</div>
+        <p>&copy; 2025 <span class="footer-highlight">RM Boxing</span>. Mental Health Support for Veterans & Community. All rights reserved.</p>
+    </footer>
 
-<!-- Contact Popup -->
-<div id="contactPopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup('contactPopup')">&times;</span>
-    <img src="IMG_4918.jpeg" alt="Contact Photo" style="width: 100%; border-radius: 10px; margin-bottom: 1rem;">
-    <h3 style="color: #DC143C;">Contact RM Boxing</h3>
-    <p>📞 <a href="tel:3364142086" style="color: #333;">336-414-2086</a></p>
-    <p>📧 <a href="mailto:menny2212@gmail.com" style="color: #333;">menny2212@gmail.com</a></p>
-    <p>📍 Colorado Springs, CO</p>
-  </div>
-</div>
+    <!-- Scripts -->
+    <script>
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-<!-- Schedule Popup -->
-<div id="schedulePopup" class="popup">
-  <div class="popup-content">
-    <span class="close" onclick="closePopup('schedulePopup')">&times;</span>
-    <h3 style="color: #DC143C;">Weekly Class Schedule</h3>
-    <p><strong>Monday:</strong> 5:00 PM – 6:30 PM</p>
-    <p><strong>Tuesday – Friday:</strong> 6:00 PM – 7:30 PM</p>
-    <p><strong>Saturday & Sunday:</strong> Appointment Only</p>
-  </div>
-</div>
+        // Popups
+        const coachBtn = document.getElementById('coachBtn');
+        const joinBtn = document.getElementById('joinBtn');
+        const coachPopup = document.getElementById('coachPopup');
+        const joinPopup = document.getElementById('joinPopup');
+        const closeCoach = document.getElementById('closeCoach');
+        const closeJoin = document.getElementById('closeJoin');
 
-<!-- Popup Styles + Script -->
-<style>
-  .floating-buttons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 1000;
-  }
-
-  .float-btn {
-    background: #DC143C;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    padding: 10px 18px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-  }
-
-  .float-btn:hover {
-    background: white;
-    color: #DC143C;
-    border: 2px solid #DC143C;
-  }
-
-  .popup {
-    display: none;
-    position: fixed;
-    z-index: 1001;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.6);
-  }
-
-  .popup-content {
-    background: white;
-    border-radius: 10px;
-    padding: 2rem;
-    max-width: 400px;
-    margin: 10% auto;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    text-align: center;
-    animation: fadeIn 0.3s ease;
-  }
-
-  .close {
-    float: right;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #DC143C;
-    cursor: pointer;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-
-<script>
-  const contactBtn = document.getElementById("contactBtn");
-  const scheduleBtn = document.getElementById("scheduleBtn");
-
-  contactBtn.onclick = () => openPopup("contactPopup");
-  scheduleBtn.onclick = () => openPopup("schedulePopup");
-
-  function openPopup(id) {
-    document.getElementById(id).style.display = "block";
-  }
-
-  function closePopup(id) {
-    document.getElementById(id).style.display = "none";
-  }
-
-  // Close when clicking outside popup
-  window.onclick = function(event) {
-    if (event.target.classList.contains("popup")) {
-      event.target.style.display = "none";
-    }
-  };
-</script>
+        coachBtn.addEventListener('click', () => { coachPopup.style.display = 'block'; });
+        joinBtn.addEventListener('click', () => { joinPopup.style.display = 'block'; });
+        closeCoach.addEventListener('click', () => { coachPopup.style.display = 'none'; });
+        closeJoin.addEventListener('click', () => { joinPopup.style.display = 'none'; });
+        window.addEventListener('click', e => {
+            if (e.target === coachPopup) coachPopup.style.display = 'none';
+            if (e.target === joinPopup) joinPopup.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
