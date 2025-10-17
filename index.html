@@ -52,8 +52,8 @@
         .section-title span {color:#DC143C;}
 
         /* Program & Serve Cards */
-        .programs-grid,.serve-grid,.benefits-list,.sponsor-grid {display:grid;gap:2rem;margin-top:3rem;}
-        .program-card,.serve-card,.benefit-item,.sponsor-card {padding:2rem;border-radius:10px;transition:all 0.3s;}
+        .programs-grid,.serve-grid,.benefits-list {display:grid;gap:2rem;margin-top:3rem;}
+        .program-card,.serve-card,.benefit-item {padding:2rem;border-radius:10px;transition:all 0.3s;}
         .program-card {background:white;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #DC143C;}
         .program-card:hover {transform:translateY(-10px);box-shadow:0 15px 40px rgba(220,20,60,0.2);}
         .program-icon {font-size:3rem;margin-bottom:1rem;}
@@ -64,8 +64,6 @@
         .benefit-item {background:rgba(220,20,60,0.1);border-left:4px solid #DC143C;}
         .benefit-item h4 {color:#DC143C;margin-bottom:0.5rem;font-size:1.2rem;}
         .benefit-item p {opacity:0.9;}
-        .sponsor-card {background:white;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #DC143C;cursor:pointer;text-align:center;}
-        .sponsor-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(220,20,60,0.2);}
 
         /* Footer */
         footer {background:#1a1a1a;color:white;text-align:center;padding:2rem;}
@@ -85,12 +83,29 @@
         @media (max-width:768px){.hero h1{font-size:2rem;}.section-title{font-size:1.8rem;}.hero{padding:4rem 1rem;}}
 
         /* Gallery Section */
-        .gallery-section {text-align: center;padding: 4rem 2rem;background: #f5f5f5;}
-        .gallery-section h2 {font-size: 2.5rem;font-weight: 800;color: #1a1a1a;margin-bottom: 2rem;}
-        .gallery-section h2 span {color: #DC143C;}
-        .gallery-grid {display: grid;grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));gap: 1.5rem;justify-items: center;}
-        .gallery-grid img {width: 100%;max-width: 300px;border-radius: 15px;box-shadow: 0 4px 10px rgba(0,0,0,0.3);cursor: pointer;transition: transform 0.3s ease;}
-        .gallery-grid img:hover {transform: scale(1.05);}
+        .gallery-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #f5f5f5;
+        }
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 2rem;
+        }
+        .gallery-section h2 span { color: #DC143C; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; justify-items: center; }
+        .gallery-grid img { width: 100%; max-width: 300px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer; transition: transform 0.3s ease; }
+        .gallery-grid img:hover { transform: scale(1.05); }
+
+        /* Sponsor Cards */
+        .sponsor-section {background:white;text-align:center;padding:4rem 2rem;}
+        .sponsor-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;margin-top:3rem;}
+        .sponsor-card {padding:2rem;border-radius:10px;box-shadow:0 5px 20px rgba(0,0,0,0.1);border-left:5px solid #DC143C;cursor:pointer;transition:all 0.3s;}
+        .sponsor-card:hover {transform:translateY(-5px);box-shadow:0 10px 30px rgba(220,20,60,0.2);}
+        .sponsor-card h3 {font-size:1.5rem;margin-bottom:1rem;}
+        .sponsor-card p {opacity:0.9;}
     </style>
 </head>
 <body>
@@ -113,17 +128,16 @@
                 <li><a href="#serve">Who We Serve</a></li>
                 <li><a href="#benefits">Benefits</a></li>
                 <li><a href="#sponsors">Sponsors</a></li>
-                <li><a href="#" id="merchBtn">Merchandise</a></li>
-                <li><a href="#" id="contactBtn">Contact</a></li>
+                <li><a href="#" id="merchLink">Merchandise</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
+        <img src="IMG_4916.jpeg" alt="Logo Left" style="position:absolute;top:10px;left:10px;width:100px;height:auto;z-index:2;">
+        <img src="IMG_4916.jpeg" alt="Logo Right" style="position:absolute;top:10px;right:10px;width:100px;height:auto;z-index:2;">
         <div class="hero-content">
-            <img src="IMG_4916.jpeg" style="position:absolute;left:20px;top:20px;width:80px;height:80px;opacity:0.6;">
-            <img src="IMG_4916.jpeg" style="position:absolute;right:20px;top:20px;width:80px;height:80px;opacity:0.6;">
             <h1>Step Into The <span>Ring</span></h1>
             <p>A nonprofit organization dedicated to winning against depression and anxiety. Through boxing, mentorship, and coaching—we're building mental health support for veterans, low-income families, and our community.</p>
             <a href="#programs" class="cta-button">Learn More</a>
@@ -155,71 +169,90 @@
                 <div class="program-card"><div class="program-icon">👥</div><h3>One-on-One Training</h3><p>Get personalized attention with individual training sessions tailored to your goals, fitness level, and mental health journey.</p></div>
                 <div class="program-card"><div class="program-icon">💪</div><h3>Strength & Conditioning</h3><p>Build functional strength and endurance with guided conditioning programs designed to improve both physical and mental resilience.</p></div>
                 <div class="program-card"><div class="program-icon">🍎</div><h3>Meal Planning</h3><p>Nutrition guidance and personalized meal plans to fuel your body and support your mental health recovery.</p></div>
-                <div class="program-card"><div class="program-icon">🧠</div><h3>Mental Health Support</h3><p>Our coaches provide mentorship, counseling referrals, and community support to help you manage stress, anxiety, and depression effectively.</p></div>
+                <div class="program-card"><div class="program-icon">🤝</div><h3>Mentorship</h3><p>Connect with experienced mentors who understand your challenges. Get guidance, support, and genuine friendship as you navigate life's struggles.</p></div>
+                <div class="program-card"><div class="program-icon">🎯</div><h3>Coaching & Support</h3><p>Personalized coaching focused on mental wellness, goal-setting, and building healthy coping strategies for depression and anxiety.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Who We Serve Section -->
+    <!-- Who We Serve -->
     <section class="who-we-serve" id="serve">
-        <h2 class="section-title">Who We <span>Serve</span></h2>
-        <div class="serve-grid">
-            <div class="serve-card">
-                <h3>Veterans</h3>
-                <img src="PHOTO-2025-10-16-20-45-46.jpeg" alt="Veteran Training" style="width:100%;max-width:400px;border-radius:10px;margin:1rem 0;">
-                <p>We provide veterans with a supportive community, physical training, and mental health resources to help transition successfully into civilian life.</p>
+        <div class="who-we-serve-container">
+            <h2 class="section-title">Who We <span>Serve</span></h2>
+            <img src="PHOTO-2025-10-16-20-45-46.jpeg" alt="Veterans and Community Members" style="width:100%;max-width:1000px;height:auto;border-radius:10px;margin-bottom:3rem;">
+            <div class="serve-grid">
+                <div class="serve-card"><h3>🇺🇸 Veterans</h3><p>Specialized support for those who have served, helping transition to civilian life and managing service-related mental health challenges.</p></div>
+                <div class="serve-card"><h3>👨‍👩‍👧‍👦 Low-Income Families</h3><p>Accessible mental health support and community building for families facing financial hardship and stress.</p></div>
+                <div class="serve-card"><h3>🌍 Community Members</h3><p>Anyone in our community struggling with depression, anxiety, or mental health challenges looking for support and connection.</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Floating Buttons for Popups -->
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <h2 class="section-title"><span>Gallery</span></h2>
+        <div class="gallery-grid">
+            <a href="images/IMG_4916.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 1"><img src="images/IMG_4916.jpeg" alt="Training Photo 1"></a>
+            <a href="images/IMG_5095.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 2"><img src="images/IMG_5095.jpeg" alt="Training Photo 2"></a>
+            <a href="images/IMG_5096.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 3"><img src="images/IMG_5096.jpeg" alt="Training Photo 3"></a>
+            <a href="images/IMG_5097.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 4"><img src="images/IMG_5097.jpeg" alt="Training Photo 4"></a>
+            <a href="images/IMG_5098.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 5"><img src="images/IMG_5098.jpeg" alt="Training Photo 5"></a>
+            <a href="images/IMG_5099.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 6"><img src="images/IMG_5099.jpeg" alt="Training Photo 6"></a>
+            <a href="images/IMG_5100.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 7"><img src="images/IMG_5100.jpeg" alt="Training Photo 7"></a>
+            <a href="images/IMG_5101.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 8"><img src="images/IMG_5101.jpeg" alt="Training Photo 8"></a>
+        </div>
+    </section>
+
+    <!-- Sponsor Section -->
+    <section id="sponsors" class="sponsor-section">
+        <h2 class="section-title">Our <span>Sponsors</span></h2>
+        <p>Supporting RM Boxing helps our programs, athletes, and the community thrive. Each sponsorship level contributes more and enables greater impact!</p>
+        <div class="sponsor-grid">
+            <div class="sponsor-card" id="bronzeSponsor">Bronze Sponsor: Provides basic support for RM Boxing operations.</div>
+            <div class="sponsor-card" id="silverSponsor">Silver Sponsor: Provides enhanced support including community events and athlete funding.</div>
+            <div class="sponsor-card" id="goldSponsor">Gold Sponsor: Provides maximum support for programs, events, and community outreach.</div>
+        </div>
+    </section>
+
+    <!-- Floating Buttons -->
     <div class="floating-buttons">
         <button class="float-btn" id="coachBtn">Meet Coach Menny</button>
         <button class="float-btn" id="joinBtn">Join RM Boxing</button>
-        <button class="float-btn" id="sponsorBtn">Sponsors</button>
+        <button class="float-btn" id="merchBtn">Merchandise</button>
+        <button class="float-btn" id="contactBtn">Contact</button>
     </div>
 
-    <!-- Meet Coach Menny Popup -->
+    <!-- Coach Popup -->
     <div class="popup" id="coachPopup">
         <div class="popup-content">
             <span class="close" id="closeCoach">&times;</span>
             <h2>Meet Coach Menny</h2>
-            <p>Retired SFC, Professional Boxer and Coach. Over 80 fights in the US Army, winning multiple national and international competitions. Veteran, dedicated to training soldiers, elite athletes, youth, and anyone looking to get fit and have fun.</p>
-            <p>Born in Mexico, Coach Menny brings passion, discipline, and heart to every training session.</p>
+            <p>Retired SFC, Professional Boxer and Coach. Over 80 fights in the US Army, winning multiple national and international competitions. Veteran, dedicated to training soldiers, elite athletes, youth, and anyone looking to get fit and have fun.<br><br>
+            Born in Mexico, Coach Menny brings passion, discipline, and heart to every training session.</p>
         </div>
     </div>
 
-    <!-- Join RM Boxing Popup -->
+    <!-- Join Popup -->
     <div class="popup" id="joinPopup">
         <div class="popup-content">
             <span class="close" id="closeJoin">&times;</span>
             <h2>Join RM Boxing</h2>
             <form id="joinForm">
-                <input type="text" name="firstName" placeholder="First Name" required style="width:100%;padding:10px;margin:5px 0;border-radius:5px;border:1px solid #ccc;">
-                <input type="text" name="lastName" placeholder="Last Name" required style="width:100%;padding:10px;margin:5px 0;border-radius:5px;border:1px solid #ccc;">
-                <input type="email" name="email" placeholder="Email" required style="width:100%;padding:10px;margin:5px 0;border-radius:5px;border:1px solid #ccc;">
-                <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%;padding:10px;margin:5px 0;border-radius:5px;border:1px solid #ccc;">
-                <button type="submit" style="background:#DC143C;color:white;padding:10px 20px;border:none;border-radius:5px;margin-top:10px;cursor:pointer;font-weight:bold;">Submit</button>
+                <input type="text" name="firstName" placeholder="First Name" required style="width:80%;padding:0.5rem;margin-bottom:1rem;">
+                <input type="text" name="lastName" placeholder="Last Name" required style="width:80%;padding:0.5rem;margin-bottom:1rem;">
+                <input type="email" name="email" placeholder="Email" required style="width:80%;padding:0.5rem;margin-bottom:1rem;">
+                <input type="tel" name="phone" placeholder="Phone Number" required style="width:80%;padding:0.5rem;margin-bottom:1rem;">
+                <button type="submit" style="padding:0.7rem 2rem;background:#DC143C;color:white;border:none;border-radius:5px;font-weight:bold;">Submit</button>
             </form>
         </div>
     </div>
 
-    <!-- Sponsor Section & Popup -->
-    <section class="sponsors" id="sponsors">
-        <h2 class="section-title">Our <span>Sponsors</span></h2>
-        <p>Our sponsors help RM Boxing provide programs, training, and support to the community. Each sponsorship level gives more benefits to RM and the community.</p>
-        <div class="sponsor-grid">
-            <div class="sponsor-card" id="bronzeSponsor">Bronze Sponsor<br>Basic Support</div>
-            <div class="sponsor-card" id="silverSponsor">Silver Sponsor<br>Enhanced Support</div>
-            <div class="sponsor-card" id="goldSponsor">Gold Sponsor<br>Maximum Support</div>
-        </div>
-    </section>
-
+    <!-- Sponsor Popups -->
     <div class="popup" id="sponsorPopup">
         <div class="popup-content">
             <span class="close" id="closeSponsor">&times;</span>
             <h2>Sponsor RM Boxing</h2>
-            <p>Interested in sponsoring RM Boxing? Each sponsorship helps provide programs, training, and community support. Please contact us via email: <a href="mailto:menny2212@gmail.com">menny2212@gmail.com</a>.</p>
+            <p>Thank you for supporting RM Boxing! Please email your sponsorship inquiries to <a href="mailto:menny2212@gmail.com">menny2212@gmail.com</a>.</p>
         </div>
     </div>
 
@@ -228,13 +261,8 @@
         <div class="popup-content">
             <span class="close" id="closeMerch">&times;</span>
             <h2>Merchandise</h2>
-            <ul style="list-style:none;padding:0;">
-                <li>Hats = $35</li>
-                <li>Beanies = $25</li>
-                <li>Shirts = $20</li>
-                <li>Sweats (upon request) = $75 or $85 with name</li>
-            </ul>
-            <p>Delivery fees apply if not pickup. Place orders via SMS: <a href="sms:3364142086">336-414-2086</a></p>
+            <p>Hats = $35<br>Beanies = $25<br>Shirts = $20<br>Sweats (customizable) = $75–$85<br><small>Delivery fees apply if not pickup</small></p>
+            <p>Order via SMS: <a href="sms:3364142086">336-414-2086</a></p>
         </div>
     </div>
 
@@ -242,80 +270,71 @@
     <div class="popup" id="contactPopup">
         <div class="popup-content">
             <span class="close" id="closeContact">&times;</span>
-            <h2>Contact Us</h2>
-            <p>SMS: 336-414-2086</p>
-            <p>Email: <a href="mailto:menny2212@gmail.com">menny2212@gmail.com</a></p>
+            <h2>Contact</h2>
+            <p>SMS: 336-414-2086<br>Email: <a href="mailto:menny2212@gmail.com">menny2212@gmail.com</a></p>
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 RM Boxing | Follow us: 
-            <a href="https://www.facebook.com" target="_blank" class="footer-highlight">Facebook</a> | 
-            <a href="https://www.instagram.com" target="_blank" class="footer-highlight">Instagram</a>
-        </p>
-    </footer>
-
     <script>
-        // Hamburger Menu
+        // Hamburger toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
         hamburger.addEventListener('click', () => {navLinks.classList.toggle('active');});
 
         // Popups
         const coachBtn = document.getElementById('coachBtn');
-        const coachPopup = document.getElementById('coachPopup');
-        const closeCoach = document.getElementById('closeCoach');
-        coachBtn.onclick = () => {coachPopup.style.display='block';};
-        closeCoach.onclick = () => {coachPopup.style.display='none';};
-
         const joinBtn = document.getElementById('joinBtn');
-        const joinPopup = document.getElementById('joinPopup');
-        const closeJoin = document.getElementById('closeJoin');
-        joinBtn.onclick = () => {joinPopup.style.display='block';};
-        closeJoin.onclick = () => {joinPopup.style.display='none';};
-
-        const sponsorBtn = document.getElementById('sponsorBtn');
-        const sponsorPopup = document.getElementById('sponsorPopup');
-        const closeSponsor = document.getElementById('closeSponsor');
-        sponsorBtn.onclick = () => {sponsorPopup.style.display='block';};
-        closeSponsor.onclick = () => {sponsorPopup.style.display='none';};
-
         const merchBtn = document.getElementById('merchBtn');
-        const merchPopup = document.getElementById('merchPopup');
-        const closeMerch = document.getElementById('closeMerch');
-        merchBtn.onclick = () => {merchPopup.style.display='block';};
-        closeMerch.onclick = () => {merchPopup.style.display='none';};
-
         const contactBtn = document.getElementById('contactBtn');
+
+        const coachPopup = document.getElementById('coachPopup');
+        const joinPopup = document.getElementById('joinPopup');
+        const merchPopup = document.getElementById('merchPopup');
         const contactPopup = document.getElementById('contactPopup');
+
+        const sponsorPopup = document.getElementById('sponsorPopup');
+
+        const closeCoach = document.getElementById('closeCoach');
+        const closeJoin = document.getElementById('closeJoin');
+        const closeMerch = document.getElementById('closeMerch');
         const closeContact = document.getElementById('closeContact');
-        contactBtn.onclick = () => {contactPopup.style.display='block';};
-        closeContact.onclick = () => {contactPopup.style.display='none';};
+        const closeSponsor = document.getElementById('closeSponsor');
 
-        // Sponsor Cards Click
-        const bronze = document.getElementById('bronzeSponsor');
-        const silver = document.getElementById('silverSponsor');
-        const gold = document.getElementById('goldSponsor');
-        bronze.onclick = silver.onclick = gold.onclick = () => {sponsorPopup.style.display='block';};
+        coachBtn.onclick = () => {coachPopup.style.display='block';}
+        joinBtn.onclick = () => {joinPopup.style.display='block';}
+        merchBtn.onclick = () => {merchPopup.style.display='block';}
+        contactBtn.onclick = () => {contactPopup.style.display='block';}
 
-        // Join Form SMS
-        const joinForm = document.getElementById('joinForm');
-        joinForm.addEventListener('submit', function(e){
+        closeCoach.onclick = () => {coachPopup.style.display='none';}
+        closeJoin.onclick = () => {joinPopup.style.display='none';}
+        closeMerch.onclick = () => {merchPopup.style.display='none';}
+        closeContact.onclick = () => {contactPopup.style.display='none';}
+        closeSponsor.onclick = () => {sponsorPopup.style.display='none';}
+
+        window.onclick = (e) => {
+            if(e.target===coachPopup) coachPopup.style.display='none';
+            if(e.target===joinPopup) joinPopup.style.display='none';
+            if(e.target===merchPopup) merchPopup.style.display='none';
+            if(e.target===contactPopup) contactPopup.style.display='none';
+            if(e.target===sponsorPopup) sponsorPopup.style.display='none';
+        }
+
+        // Join form submit
+        document.getElementById('joinForm').addEventListener('submit', function(e){
             e.preventDefault();
-            const first = joinForm.firstName.value;
-            const last = joinForm.lastName.value;
-            const email = joinForm.email.value;
-            const phone = joinForm.phone.value;
-            window.location.href = `sms:3364142086&body=Name:%20${first}%20${last}%20Email:%20${email}%20Phone:%20${phone}`;
+            const fName = this.firstName.value;
+            const lName = this.lastName.value;
+            const email = this.email.value;
+            const phone = this.phone.value;
+            const smsLink = `sms:3364142086&body=First Name: ${fName}%0ALast Name: ${lName}%0AEmail: ${email}%0APhone: ${phone}`;
+            window.location.href = smsLink;
         });
 
-        // Close popup when clicking outside
-        window.onclick = function(event){
-            const popups = [coachPopup, joinPopup, sponsorPopup, merchPopup, contactPopup];
-            popups.forEach(p=>{
-                if(event.target == p){p.style.display='none';}
-            });
-        }
+        // Sponsor Cards click
+        document.getElementById('bronzeSponsor').onclick = () => {sponsorPopup.style.display='block';}
+        document.getElementById('silverSponsor').onclick = () => {sponsorPopup.style.display='block';}
+        document.getElementById('goldSponsor').onclick = () => {sponsorPopup.style.display='block';}
     </script>
 </body>
 </html>
+
