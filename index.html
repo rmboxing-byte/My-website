@@ -228,12 +228,12 @@
         <span class="close" onclick="closePopup('joinPopup')">&times;</span>
         <h2>Join RM Boxing</h2>
         <p>Schedule: Monday 5:00 PM - 6:30 PM, Tues-Fri 6:00 PM - 7:30 PM, Saturday and Sunday - Appointment Only</p>
-        <form>
-            <label for="name">Full Name</label><input type="text" id="name" required>
-            <label for="email">Email</label><input type="email" id="email" required>
-            <label for="phone">Phone Number</label><input type="tel" id="phone" required>
-            <a href="sms:+13364142086?body=Hi%20Coach%20Menny,%20I%27m%20interested%20in%20joining%20RM%20Boxing!" class="button">Send Text</a>
-        </form>
+        <form onsubmit="sendText(event)">
+    <label for="name">Full Name</label><input type="text" id="name" required>
+    <label for="email">Email</label><input type="email" id="email" required>
+    <label for="phone">Phone Number</label><input type="tel" id="phone" required>
+    <button type="submit">Send Text</button>
+</form>
         <p>Or SMS us directly at <a href="sms:+13364142086">+1 (336) 414-2086</a></p>
     </div>
 </div>
@@ -331,20 +331,33 @@
 </footer>
 
     <script>
-        // Hamburger toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-        hamburger.addEventListener('click', ()=>{navLinks.classList.toggle('active');});
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', ()=>{navLinks.classList.toggle('active');});
 
-        // Popup functions
-        function openPopup(id){document.getElementById(id).style.display='block';}
-        function closePopup(id){document.getElementById(id).style.display='none';}
-        window.onclick = function(event){
-    ['coachPopup','joinPopup','sponsorPopup','merchPopup','contactPopup','galleryPopup'].forEach(id=>{
-        let popup = document.getElementById(id);
-        if(event.target == popup){popup.style.display = 'none';}
-    });
-}
-    </script>
+    // Popup functions
+    function openPopup(id){document.getElementById(id).style.display='block';}
+    function closePopup(id){document.getElementById(id).style.display='none';}
+    window.onclick = function(event){
+        ['coachPopup','joinPopup','sponsorPopup','merchPopup','contactPopup','galleryPopup'].forEach(id=>{
+            let popup = document.getElementById(id);
+            if(event.target == popup){popup.style.display = 'none';}
+        });
+    }
+
+    // Function to send SMS with user input
+    function sendText(event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+
+        const message = `Hi Coach Menny, my name is ${name}. My email is ${email} and my phone number is ${phone}. I’m interested in joining RM Boxing!`;
+        const smsLink = `sms:+13364142086?body=${encodeURIComponent(message)}`;
+
+        window.location.href = smsLink;
+    }
+</script>
 </body>
 </html>
