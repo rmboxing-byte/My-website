@@ -28,7 +28,20 @@
             nav ul.active {display:flex;}
             .hamburger {display:flex;}
         }
+/* --- Add Gallery Styles Here --- */
+    .popup-content .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 10px;
+        margin-top: 15px;
+    }
 
+    .popup-content .gallery-grid img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        border-radius: 5px;
+    }
         /* Hero Section */
         .hero {background:linear-gradient(135deg,#1a1a1a 0%,#2d2d2d 100%);color:white;padding:8rem 2rem;text-align:center;position:relative;overflow:hidden;}
         .hero::before {content:'';position:absolute;top:0;right:0;width:500px;height:500px;background:radial-gradient(circle,rgba(220,20,60,0.1) 0%,transparent 70%);border-radius:50%;}
@@ -174,22 +187,7 @@
     </section>
 
     <!-- Gallery Section -->
-<section id="gallery" class="gallery-section">
-    <h2 class="section-title"><span>Gallery</span></h2>
-    
-    <div class="gallery-grid">
-        <!-- Lightbox Images -->
-        <a href="images/IMG_4916.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 1"><img src="images/IMG_4916.jpeg" alt="Training Photo 1"></a>
-        <a href="images/IMG_5095.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 2"><img src="images/IMG_5095.jpeg" alt="Training Photo 2"></a>
-        <a href="images/IMG_5096.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 3"><img src="images/IMG_5096.jpeg" alt="Training Photo 3"></a>
-        <a href="images/IMG_5097.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 4"><img src="images/IMG_5097.jpeg" alt="Training Photo 4"></a>
-        <a href="images/IMG_5098.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 5"><img src="images/IMG_5098.jpeg" alt="Training Photo 5"></a>
-        <a href="images/IMG_5099.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 6"><img src="images/IMG_5099.jpeg" alt="Training Photo 6"></a>
-        <a href="images/IMG_5100.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 7"><img src="images/IMG_5100.jpeg" alt="Training Photo 7"></a>
-        <a href="images/IMG_5101.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 8"><img src="images/IMG_5101.jpeg" alt="Training Photo 8"></a>
-        <a href="images/IMG_5102.jpeg" data-lightbox="rm-gallery" data-title="Training Photo 9"><img src="images/IMG_5102.jpeg" alt="Training Photo 9"></a>
-    </div>
-</section>
+
 
     <!-- Benefits Section -->
     <section class="benefits" id="benefits">
@@ -272,6 +270,48 @@
            <p>Phone/SMS: <a href="sms:+13364142086">+1 (336) 414-2086</a></p>
         </div>
     </div>
+    <!-- Gallery Popup -->
+<div id="galleryPopup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('galleryPopup')">&times;</span>
+        <h2>RM Boxing Gallery</h2>
+        <p>Click images to view full size</p>
+        <div class="gallery-grid">
+            <a href="images/IMG_4906.jpeg" data-lightbox="rm-gallery" data-title="Photo 1"><img src="images/IMG_4906.jpeg" alt="Photo 1"></a>
+            <a href="images/IMG_4907.jpeg" data-lightbox="rm-gallery" data-title="Photo 2"><img src="images/IMG_4907.jpeg" alt="Photo 2"></a>
+            <a href="images/IMG_4908.jpeg" data-lightbox="rm-gallery" data-title="Photo 3"><img src="images/IMG_4908.jpeg" alt="Photo 3"></a>
+            <a href="images/IMG_4909.jpeg" data-lightbox="rm-gallery" data-title="Photo 4"><img src="images/IMG_4909.jpeg" alt="Photo 4"></a>
+            <a href="images/IMG_4910.jpeg" data-lightbox="rm-gallery" data-title="Photo 5"><img src="images/IMG_4910.jpeg" alt="Photo 5"></a>
+            <a href="images/IMG_4913.jpeg" data-lightbox="rm-gallery" data-title="Photo 6"><img src="images/IMG_4913.jpeg" alt="Photo 6"></a>
+            <a href="images/IMG_4915.jpeg" data-lightbox="rm-gallery" data-title="Photo 7"><img src="images/IMG_4915.jpeg" alt="Photo 7"></a>
+            <a href="images/IMG_4916.jpeg" data-lightbox="rm-gallery" data-title="Photo 8"><img src="images/IMG_4916.jpeg" alt="Photo 8"></a>
+            <a href="images/IMG_4919.jpeg" data-lightbox="rm-gallery" data-title="Photo 9"><img src="images/IMG_4919.jpeg" alt="Photo 9"></a>
+            <a href="images/IMG_4920.jpeg" data-lightbox="rm-gallery" data-title="Photo 10"><img src="images/IMG_4920.jpeg" alt="Photo 10"></a>
+            <a href="images/IMG_4921.jpeg" data-lightbox="rm-gallery" data-title="Photo 11"><img src="images/IMG_4921.jpeg" alt="Photo 11"></a>
+            <a href="images/IMG_4922.jpeg" data-lightbox="rm-gallery" data-title="Photo 12"><img src="images/IMG_4922.jpeg" alt="Photo 12"></a>
+            <a href="images/IMG_4923.jpeg" data-lightbox="rm-gallery" data-title="Photo 13"><img src="images/IMG_4923.jpeg" alt="Photo 13"></a>
+            <a href="images/IMG_4924.jpeg" data-lightbox="rm-gallery" data-title="Photo 14"><img src="images/IMG_4924.jpeg" alt="Photo 14"></a>
+            <a href="images/IMG_4925.jpeg" data-lightbox="rm-gallery" data-title="Photo 15"><img src="images/IMG_4925.jpeg" alt="Photo 15"></a>
+            <a href="images/IMG_5094.jpeg" data-lightbox="rm-gallery" data-title="Photo 16"><img src="images/IMG_5094.jpeg" alt="Photo 16"></a>
+            <a href="images/IMG_5095.jpeg" data-lightbox="rm-gallery" data-title="Photo 17"><img src="images/IMG_5095.jpeg" alt="Photo 17"></a>
+            <a href="images/IMG_5096.jpeg" data-lightbox="rm-gallery" data-title="Photo 18"><img src="images/IMG_5096.jpeg" alt="Photo 18"></a>
+            <a href="images/IMG_5097.jpeg" data-lightbox="rm-gallery" data-title="Photo 19"><img src="images/IMG_5097.jpeg" alt="Photo 19"></a>
+            <a href="images/IMG_5098.jpeg" data-lightbox="rm-gallery" data-title="Photo 20"><img src="images/IMG_5098.jpeg" alt="Photo 20"></a>
+            <a href="images/IMG_5099.jpeg" data-lightbox="rm-gallery" data-title="Photo 21"><img src="images/IMG_5099.jpeg" alt="Photo 21"></a>
+            <a href="images/IMG_5100.jpeg" data-lightbox="rm-gallery" data-title="Photo 22"><img src="images/IMG_5100.jpeg" alt="Photo 22"></a>
+            <a href="images/IMG_5101.jpeg" data-lightbox="rm-gallery" data-title="Photo 23"><img src="images/IMG_5101.jpeg" alt="Photo 23"></a>
+            <a href="images/IMG_5102.jpeg" data-lightbox="rm-gallery" data-title="Photo 24"><img src="images/IMG_5102.jpeg" alt="Photo 24"></a>
+            <a href="images/PHOTO-2025-10-16-20-45-30.jpeg" data-lightbox="rm-gallery" data-title="Photo 25"><img src="images/PHOTO-2025-10-16-20-45-30.jpeg" alt="Photo 25"></a>
+            <a href="images/PHOTO-2025-10-16-20-45-46.jpeg" data-lightbox="rm-gallery" data-title="Photo 26"><img src="images/PHOTO-2025-10-16-20-45-46.jpeg" alt="Photo 26"></a>
+            <a href="images/PHOTO-2025-10-16-20-48-17.jpeg" data-lightbox="rm-gallery" data-title="Photo 27"><img src="images/PHOTO-2025-10-16-20-48-17.jpeg" alt="Photo 27"></a>
+            <a href="images/PHOTO-2025-10-16-20-48-28.jpeg" data-lightbox="rm-gallery" data-title="Photo 28"><img src="images/PHOTO-2025-10-16-20-48-28.jpeg" alt="Photo 28"></a>
+            <a href="images/PHOTO-2025-10-16-20-48-40.jpeg" data-lightbox="rm-gallery" data-title="Photo 29"><img src="images/PHOTO-2025-10-16-20-48-40.jpeg" alt="Photo 29"></a>
+            <a href="images/PHOTO-2025-10-16-20-48-50.jpeg" data-lightbox="rm-gallery" data-title="Photo 30"><img src="images/PHOTO-2025-10-16-20-48-50.jpeg" alt="Photo 30"></a>
+            <a href="images/PHOTO-2025-10-16-20-51-12.jpeg" data-lightbox="rm-gallery" data-title="Photo 31"><img src="images/PHOTO-2025-10-16-20-51-12.jpeg" alt="Photo 31"></a>
+            <a href="images/PHOTO-2025-10-16-20-51-13.jpeg" data-lightbox="rm-gallery" data-title="Photo 32"><img src="images/PHOTO-2025-10-16-20-51-13.jpeg" alt="Photo 32"></a>
+        </div>
+    </div>
+</div>
 
     <footer>
     <p>© 2025 RM Boxing | All Rights Reserved</p>
