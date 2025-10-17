@@ -340,11 +340,11 @@
         function openPopup(id){document.getElementById(id).style.display='block';}
         function closePopup(id){document.getElementById(id).style.display='none';}
         window.onclick = function(event){
-            ['coachPopup','joinPopup','sponsorPopup','merchPopup','contactPopup'].forEach(id=>{
-                let popup=document.getElementById(id);
-                if(event.target==popup){popup.style.display='none';}
-            });
-        }
+    ['coachPopup','joinPopup','sponsorPopup','merchPopup','contactPopup','galleryPopup'].forEach(id=>{
+        let popup = document.getElementById(id);
+        if(event.target == popup){popup.style.display = 'none';}
+    });
+}
     </script>
 </body>
 </html>
